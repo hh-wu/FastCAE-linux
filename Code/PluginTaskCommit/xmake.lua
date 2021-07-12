@@ -1,0 +1,27 @@
+add_rules("mode.debug", "mode.release")
+
+target("PluginTaskCommit")
+    set_languages("c++11")
+    add_rules("qt.shared")
+    add_defines("TASK_COMMIT_API")
+    add_includedirs("./")
+    add_includedirs("../")
+    add_includedirs("./../../")
+    add_files("*.cpp","*.h","*.ui")
+    add_files("TaskCommit_zh_CN.ts")
+    add_files("Translation.qrc")
+    add_files("res.qrc")
+    add_frameworks("QtCore","QtGui","QtNetwork","QtWidgets")
+
+    add_deps("SelfDefObject")
+    --- add_deps("lquazipd") 不知道咋弄
+    add_deps("ModelData")
+    add_deps("ModuleBase")
+    add_deps("DataProperty")
+    add_deps("IO")
+    add_deps("MainWidgets")
+    add_deps("PluginManager")
+    add_deps("BCBase")
+    add_deps("MainWindow")
+    --- add_deps("lsqlite3_x64") 不知道咋弄
+    add_rules("qt.console")
